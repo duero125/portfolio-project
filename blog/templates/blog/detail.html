@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Duero</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -48,44 +48,25 @@
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link" href="http://twitter.com">Twitter</a>
                     <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-                    <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+                    <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <main role="main">
+        <div class="container">
+           
+           
+                <h1 class="text-center pt-3">{{ blog.title }}</h1>
+                <p class="text-center">{{ blog.pub_date }}</p>
+                <img class="img-fluid" src="{{ blog.image.url }}"  />
+                <br />
+                <br />
+                <p>{{ blog.body }}</p>
+            
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Hi, I'm Duero.</h1>
-                <p class="lead text-muted">Uczę się programować w Django.</p>
-                <p>
-                    <a href="mailto:duero@wp.pl" class="btn btn-primary my-2">Email Me</a>
-                </p>
-                <img src="{% static 'biz.jpg' %}" />
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-                    {% for job in jobs.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="{{ job.image.url }}" />
-                            <div class="card-body">
-                                <p class="card-text">{{ job.summary }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-                </div>
-            </div>
         </div>
-
     </main>
 
     <footer class="text-muted">
